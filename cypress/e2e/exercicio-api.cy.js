@@ -12,9 +12,10 @@ describe('Testes da Funcionalidade Usuários', () => {
 
   it('Deve listar usuários cadastrados', () => {
     cy.request('usuarios').then((resposta) => {
-      cy.log(resposta.body)
       expect(resposta.body).to.have.property('usuarios')
       expect(resposta.status).equal(200)
+      cy.log(resposta.body)
+      cy.log(resposta.status)
     })
   });
 
